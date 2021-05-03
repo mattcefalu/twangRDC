@@ -3,7 +3,7 @@ title: "Gradient boosted weighting for linkage failures in US Census Bureau data
 author: "Matthew Cefalu, John Sullivan, Narayan Sastry, and Elizabeth Fussell"
 date: "`r Sys.Date()`"
 output: 
-        rmarkdown::html_document:  
+        rmarkdown::pdf_document:  
         fig_caption: yes
 vignette: >
   %\VignetteIndexEntry{Gradient boosted weighting for linkage failures in US Census Bureau datasets}
@@ -238,7 +238,7 @@ Our second example use of **twangRDC** will generate a comparison group for Orle
 
   # fit the xgboost model
   res.ps = ps.xgb(nola_rec ~ c00_age12:c00_sex + c00_race , 
-               data=nola_south[!is.na(nola_south$concdis),],
+               data=nola_south,
                params=params,
                max.steps=25,
                iters.per.step=100,
